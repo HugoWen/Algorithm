@@ -22,13 +22,17 @@ function MaxSubArray(array $array)
     foreach ($array as $i => $val) {
         $sum += $val;
 
-        if ($sum < 0) {
+        if ($sum <= 0) {
             $sum = 0;
         }
 
         if ($sum > $max) {
             $max = $sum;
         }
+    }
+
+    if ($max === 0) {
+        $max = max($array);
     }
 
     return $max;
